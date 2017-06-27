@@ -1,6 +1,7 @@
 package com.example.android.sample.mymemoapp;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
@@ -55,6 +56,18 @@ public class MemoEditText extends EditText{
 
         //Paint.Style.STROKEは塗りつぶしなしで、輪郭線を描画するスタイル
         mPaint.setStyle(Paint.Style.STROKE);
+
+        //インスタンス生成時に、属性情報が渡されていない場合
+        //かつ、Android Studioのプレビュー表示ではない場合
+        if (attrs != null && !isInEditMode()) {
+            //属性情報を取得
+            int lineEffectBit;
+            int lineColor;
+
+            Resources resources = context.getResources();
+            TypeArray typeArray = context.obtainStyledAttributes(attrs, R.styleable.MemoEditText);
+
+        }
 
     }
 
